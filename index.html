@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pembaruan Energi Kosmis - Panduan energi harian kolektif & personal" />
+  <title>Update Energi Kosmis - by Kapten Nemo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    (() => {
+      const savedTheme = localStorage.getItem("energi-kosmis-theme");
+      const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+      document.documentElement.dataset.theme = savedTheme || (prefersLight ? "light" : "dark");
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+  <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjT_4YG3w3L2aXSXuO1-1Su-3k5Zd9iia7qOegi8ju_E8u1LO3Op5SWsgK-I3BGsOXmMF2MRIY7YMZ3cy8zmtmj-W18aS3IZjZ2JqM87mCDrkELJq2Y_GQMVL05CCi3SL3xTYsgAVt_v2jWifob0ZkgkJsiulHwi4G3G1jRHITSStAA2gX-e9_T1qTIRAY/w640-h384/image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjT_4YG3w3L2aXSXuO1-1Su-3k5Zd9iia7qOegi8ju_E8u1LO3Op5SWsgK-I3BGsOXmMF2MRIY7YMZ3cy8zmtmj-W18aS3IZjZ2JqM87mCDrkELJq2Y_GQMVL05CCi3SL3xTYsgAVt_v2jWifob0ZkgkJsiulHwi4G3G1jRHITSStAA2gX-e9_T1qTIRAY/w640-h384/image.png">
+</head>
+<body>
+  <!-- Latar belakang kosmis -->
+  <div class="cosmic-bg" aria-hidden="true">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    <div class="aurora aurora-3"></div>
+    <div class="stars" id="stars"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="app-header" id="appHeader">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span class="brand-name">Update Energi Kosmis</span>
+      </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Aktifkan mode terang" title="Aktifkan mode terang">
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.2A8.4 8.4 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M2 12h2.2M19.8 12H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero-card glass">
+        <p class="hero-eyebrow">Pembaruan Energi Hari Ini</p>
+        <h1 class="hero-title">Temukan Irama Energi<br />Kolektif & Personal Anda</h1>
+        <p class="hero-subtitle">
+          Pemanduan ringkas tentang arus energi yang menyentuh kehidupan kolektif,
+          serta kalkulasi pribadi berdasarkan kombinasi tanda-tanda penting diri Anda.
+        </p>
+        <div class="hero-date" id="heroDate"></div>
+        <div class="hero-actions">
+          <a href="#kolektif" class="btn btn-primary">Lihat Energi Kolektif</a>
+          <a href="#personal" class="btn btn-ghost">Hitung Energi Personal</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Energi Kolektif -->
+    <section class="section" id="kolektif">
+      <div class="section-head">
+        <h2 class="section-title">Energi Kolektif Hari Ini</h2>
+        <p class="section-desc">Ringkasan arus energi yang berdampak pada banyak orang. Diterjemahkan murni menjadi dampak, hal yang dianjurkan, dan yang sebaiknya dihindari.</p>
+      </div>
+
+      <div class="collective-card glass" id="collectiveCard">
+        <div class="collective-status">
+          <div class="pulse-dot" aria-hidden="true"></div>
+          <span id="collectiveStatus">Memuat arus energi terkini…</span>
+        </div>
+        <div class="collective-loading" id="collectiveLoading" style="display:flex;flex-direction:column;align-items:stretch;gap:18px;padding:28px 24px;color:#c9c4ec;text-align:left;">
+          <style>#collectiveLoading[hidden]{display:flex!important;}</style>
+          <div style="padding:20px 22px;border:1px solid rgba(139,230,255,.24);border-radius:20px;background:linear-gradient(135deg,rgba(139,230,255,.11),rgba(185,167,255,.08));">
+            <p style="margin:0 0 6px;color:#8be6ff;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;">Peristiwa astrologi terdekat</p>
+            <h3 style="margin:0 0 16px;color:#f5f3ff;font-size:clamp(1.15rem,2.5vw,1.5rem);line-height:1.35;">Sabtu, 24 Oktober 2026</h3>
+            <ul style="display:grid;gap:11px;margin:0;padding:0;list-style:none;">
+              <li style="display:flex;gap:10px;align-items:flex-start;color:#f5f3ff;font-size:.92rem;line-height:1.55;"><span style="color:#8be6ff;font-size:1.15rem;line-height:1;">•</span><span><strong>Merkurius memasuki fase retrograde di Scorpio</strong><br><small style="color:#c9c4ec;">Periode astrologi untuk meninjau ulang cara berkomunikasi, informasi, keputusan, dan percakapan yang belum selesai.</small></span></li>
+              <li style="display:flex;gap:10px;align-items:flex-start;color:#f5f3ff;font-size:.92rem;line-height:1.55;"><span style="color:#b9a7ff;font-size:1.15rem;line-height:1;">•</span><span><strong>Matahari berada di Scorpio</strong><br><small style="color:#c9c4ec;">Fokus interpretatif bergeser pada kedalaman, kejujuran batin, transformasi, dan hal-hal yang biasanya tersembunyi.</small></span></li>
+              <li style="display:flex;gap:10px;align-items:flex-start;color:#f5f3ff;font-size:.92rem;line-height:1.55;"><span style="color:#ff9bb3;font-size:1.15rem;line-height:1;">•</span><span><strong>Venus masih retrograde di Scorpio</strong><br><small style="color:#c9c4ec;">Relasi, nilai pribadi, keuangan, dan batas emosional berada dalam fase evaluasi sebelum Venus bergeser kembali ke Libra.</small></span></li>
+            </ul>
+            <div style="margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);">
+              <p style="margin:0 0 10px;color:#7df9c2;font-size:.84rem;font-weight:600;">Berikutnya — Minggu, 25 Oktober 2026</p>
+              <p style="margin:0;color:#c9c4ec;font-size:.88rem;line-height:1.65;"><strong style="color:#f5f3ff;">Venus retrograde kembali memasuki Libra.</strong> Ini menandai perubahan penekanan interpretatif dari intensitas Scorpio menuju keseimbangan, keadilan, hubungan, dan peninjauan ulang nilai.</p>
+              <p style="margin:10px 0 0;color:#c9c4ec;font-size:.88rem;line-height:1.65;"><strong style="color:#f5f3ff;">Bulan Purnama di Taurus diperkirakan pada 26 Oktober.</strong> Dalam astrologi, momen ini sering dibaca sebagai puncak atau kejelasan terkait keamanan, sumber daya, kenyamanan, dan hal-hal yang ingin dipertahankan.</p>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div class="loader-ring" aria-hidden="true" style="flex:0 0 auto;"></div>
+            <div>
+              <p style="margin:0;color:#8be6ff;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;">Membaca konteks langit hari ini</p>
+              <p style="margin:6px 0 0;color:#f5f3ff;font-size:1.02rem;font-weight:500;line-height:1.5;">Memetakan hubungan antara waktu, posisi pengamat, dan siklus benda langit.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+            <article style="padding:16px;border:1px solid rgba(139,230,255,.18);border-radius:16px;background:rgba(139,230,255,.07);">
+              <strong style="display:block;color:#8be6ff;font-size:.85rem;margin-bottom:7px;">Gerak semu</strong>
+              <p style="margin:0;color:#c9c4ec;font-size:.82rem;line-height:1.6;">Perubahan posisi yang terlihat dari Bumi muncul karena rotasi Bumi, revolusinya mengelilingi Matahari, serta peredaran benda langit lainnya.</p>
+            </article>
+            <article style="padding:16px;border:1px solid rgba(185,167,255,.18);border-radius:16px;background:rgba(185,167,255,.07);">
+              <strong style="display:block;color:#b9a7ff;font-size:.85rem;margin-bottom:7px;">Siklus waktu</strong>
+              <p style="margin:0;color:#c9c4ec;font-size:.82rem;line-height:1.6;">Tanggal, jam, dan lokasi menentukan bagian langit yang sedang menghadap pengamat serta bagaimana cahaya dan bayangan berubah sepanjang hari.</p>
+            </article>
+            <article style="padding:16px;border:1px solid rgba(125,249,194,.18);border-radius:16px;background:rgba(125,249,194,.07);">
+              <strong style="display:block;color:#7df9c2;font-size:.85rem;margin-bottom:7px;">Makna praktis</strong>
+              <p style="margin:0;color:#c9c4ec;font-size:.82rem;line-height:1.6;">Pola tersebut diterjemahkan menjadi tema refleksi, fokus, dan tindakan yang dapat digunakan sebagai panduan harian—bukan sebagai kepastian ilmiah.</p>
+            </article>
+          </div>
+          <div style="padding:16px 18px;border-left:2px solid #8be6ff;border-radius:0 14px 14px 0;background:linear-gradient(90deg,rgba(139,230,255,.1),rgba(139,230,255,.025));">
+            <p style="margin:0 0 8px;color:#f5f3ff;font-size:.9rem;font-weight:600;">Apa yang sedang diproses?</p>
+            <p style="margin:0;color:#c9c4ec;font-size:.86rem;line-height:1.7;">Sistem menyusun pembacaan berdasarkan tanggal hari ini dan menyaringnya ke dalam tiga lapisan: dampak kolektif yang mungkin terasa dalam suasana sosial, tindakan yang membantu menjaga kejernihan, serta pola yang sebaiknya dihindari. Penjelasan ini bersifat interpretatif; astronomi menjelaskan posisi dan gerak benda langit, sementara makna personalnya adalah ruang refleksi, bukan hubungan sebab-akibat yang terbukti secara fisika.</p>
+          </div>
+          <p style="margin:0;text-align:center;color:#9a93c4;font-size:.78rem;line-height:1.6;">Menyiapkan rangkuman lengkap dan mudah dibaca…</p>
+        </div>
+        <div class="collective-content" id="collectiveContent" hidden>
+          <div class="impact-block">
+            <div class="block-icon" aria-hidden="true">◈</div>
+            <h3>Dampak Kolektif</h3>
+            <ul class="point-list" id="impactList"></ul>
+          </div>
+          <div class="grid-twocol">
+            <div class="impact-block block-do">
+              <div class="block-icon" aria-hidden="true">✧</div>
+              <h3>Yang Dianjurkan</h3>
+              <ul class="point-list list-do" id="doList"></ul>
+            </div>
+            <div class="impact-block block-dont">
+              <div class="block-icon" aria-hidden="true">⊘</div>
+              <h3>Yang Dilarang</h3>
+              <ul class="point-list list-dont" id="dontList"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="collective-actions">
+          <button class="btn btn-ghost btn-refresh" id="refreshCollective" type="button" hidden>Segarkan Energi</button>
+          <button class="btn btn-primary btn-copy" id="copyCollective" type="button" hidden>Salin Update</button>
+          <span class="copy-status" id="copyStatus" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Energi Personal -->
+    <section class="section" id="personal">
+      <div class="section-head">
+        <h2 class="section-title">Energi Personal</h2>
+        <p class="section-desc">Isi data diri Anda untuk menerima panduan energi yang dihitung khusus berdasarkan kombinasi unik tanda-tanda penting diri Anda.</p>
+      </div>
+
+      <div class="personal-grid">
+        <!-- Form -->
+        <div class="form-card glass">
+          <h3 class="form-title">Data Diri Anda</h3>
+          <form id="personalForm" novalidate>
+            <div class="field">
+              <label for="name">Nama <span class="field-hint">opsional</span></label>
+              <input type="text" id="name" name="name" placeholder="Isi nama Anda (boleh dikosongkan)" autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="birthPlace">Tempat Lahir <span class="field-hint">wajib</span></label>
+              <input type="text" id="birthPlace" name="birthPlace" placeholder="Contoh: Jakarta, Surabaya, Denpasar" required />
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="birthDate">Tanggal Lahir <span class="field-hint">wajib</span></label>
+                <input type="date" id="birthDate" name="birthDate" required />
+              </div>
+              <div class="field">
+                <label for="birthTime">Jam Lahir <span class="field-hint">opsional</span></label>
+                <input type="time" id="birthTime" name="birthTime" placeholder="HH:MM" />
+                <p class="field-note">Jika kosong, otomatis dihitung 12:00</p>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">Hitung Energi Saya</button>
+            <p class="form-error" id="formError" hidden></p>
+          </form>
+        </div>
+
+        <!-- Hasil -->
+        <div class="result-card glass" id="resultCard" hidden>
+          <div class="result-head">
+            <div class="result-glyph" aria-hidden="true">✦</div>
+            <div>
+              <p class="result-eyebrow">Panduan Energi Personal</p>
+              <h3 class="result-name" id="resultName"></h3>
+              <p class="result-meta" id="resultMeta"></p>
+            </div>
+          </div>
+          <div class="result-essence" id="resultEssence"></div>
+          <div class="result-blocks">
+            <div class="impact-block">
+              <div class="block-icon" aria-hidden="true">◈</div>
+              <h3>Dampak untuk Anda</h3>
+              <ul class="point-list" id="personalImpact"></ul>
+            </div>
+            <div class="grid-twocol">
+              <div class="impact-block block-do">
+                <div class="block-icon" aria-hidden="true">✧</div>
+                <h3>Yang Dianjurkan</h3>
+                <ul class="point-list list-do" id="personalDo"></ul>
+              </div>
+              <div class="impact-block block-dont">
+                <div class="block-icon" aria-hidden="true">⊘</div>
+                <h3>Yang Dilarang</h3>
+                <ul class="point-list list-dont" id="personalDont"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer glass">
+    <p>Copyright © 2026 — For <a href="https://8xploit.github.io/kia" target="_blank" rel="noopener noreferrer">Kia Maheswari</a>. Powered by <a href="https://8xploit.github.io/nemo" target="_blank" rel="noopener noreferrer">Kapten Nemo</a></p>
+  </footer>
+
+  <!-- Floating Action Button (Scroll to Top) -->
+  <button class="fab" id="fab" type="button" aria-label="Kembali ke atas" title="Kembali ke atas">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <path d="M12 4a1 1 0 0 1 .7.29l6 6a1 1 0 0 1-1.4 1.42L13 7.41V19a1 1 0 1 1-2 0V7.41l-4.3 4.3a1 1 0 0 1-1.4-1.42l6-6A1 1 0 0 1 12 4Z" fill="currentColor"/>
+    </svg>
+  </button>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "energi-kosmis",
+  "version": "1.0.0",
+  "description": "Pembaruan Energi Kosmis - panduan energi harian kolektif & personal",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo \"Static site - no build step required\"",
+    "start": "npx serve ."
+  },
+  "keywords": ["astrologi", "energi", "kosmis", "glassmorphism"],
+  "author": "Kapten Nemo",
+  "license": "MIT"
+}
