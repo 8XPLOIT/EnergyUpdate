@@ -207,7 +207,7 @@
     const monthlyMarkup = monthEvents.length
       ? `<div class="astro-upcoming"><strong>Peristiwa kosmik bulan ini</strong><br>${monthEvents.map((event) => `${displayDate(new Date(`${event.date}T12:00:00`))} — ${event.title}`).join("<br>")}</div>`
       : `<div class="astro-upcoming"><strong>Peristiwa kosmik bulan ini</strong><br>Belum ada peristiwa yang tercatat untuk bulan ini.</div>`;
-    panel.innerHTML = `<div class="astro-events"><div class="astro-events-head"><div><div class="astro-events-kicker">Peristiwa astrologi hari ini</div><div class="astro-events-date">${displayDate(today)}</div></div><div class="astro-events-updated">Diperbarui ${new Intl.DateTimeFormat("id-ID", { hour: "2-digit", minute: "2-digit" }).format(today)}<br><small>${astroDataSource}</small></div></div><ul class="astro-events-list">${eventItems}</ul>${upcomingMarkup}${monthlyMarkup}</div>`;
+    panel.innerHTML = `<div class="astro-events"><div class="astro-events-head"><div><div class="astro-events-kicker">Event astrologi hari ini</div><div class="astro-events-date">${displayDate(today)}</div></div><div class="astro-events-updated">Diperbarui ${new Intl.DateTimeFormat("id-ID", { hour: "2-digit", minute: "2-digit" }).format(today)}<br><small>${astroDataSource}</small></div></div><ul class="astro-events-list">${eventItems}</ul>${upcomingMarkup}${monthlyMarkup}</div>`;
     panel.hidden = false;
   }
 
@@ -696,7 +696,7 @@
     contentEl.hidden = false;
     if (refreshBtn) refreshBtn.hidden = false;
     if (copyBtn) copyBtn.hidden = false;
-    statusEl.textContent = "Arus energi hari ini telah disaring dan diterjemahkan.";
+    statusEl.textContent = "Update energi hari ini telah difilter dan diterjemahkan secara kolektif.";
   }
 
   async function copyCollectiveUpdate() {
@@ -790,7 +790,7 @@
 
       const triad = computeTriad(place, dateStr, timeStr);
       if (!triad) {
-        showError("Data tidak dapat diproses. Periksa kembali isian Anda.");
+        showError("Data tidak dapat diproses. Periksa kembali data Anda.");
         return;
       }
 
